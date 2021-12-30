@@ -11,4 +11,3 @@ echo "<p><img src='" . $root_url . "'></p>";
 echo "<input type='button' value='Recreate' onclick='history.back()'>";
 ?>
 <!-- "http://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=http://enews.agu.edu.vn"/> -->
- 

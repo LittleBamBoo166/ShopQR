@@ -1,2 +1,5 @@
 <?php
-require_once("");
+require_once("model.php");
+class Home extends Model {
+    
+}
