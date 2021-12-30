@@ -4,11 +4,11 @@
 // switch ($mod) {
 //     case 'home':
 //         break;
-//     case 'touch':
+//     case 'qrcreate':
 //         break;
 //     case 'account':
 //         break;
 //     default:
 //         break;
 // }
-include("Views/touchHis.html");
+include("Views/home1.html");
