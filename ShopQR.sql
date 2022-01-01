@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 30, 2021 lúc 01:12 PM
+-- Thời gian đã tạo: Th12 30, 2021 lúc 04:03 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -79,24 +79,26 @@ CREATE TABLE `nguoidung` (
   `CMND` int(9) NOT NULL,
   `DiaChi` varchar(255) NOT NULL,
   `IdPhuongXa` int(10) NOT NULL,
-  `Role` varchar(11) NOT NULL
+  `Role` varchar(11) NOT NULL,
+  `SDT` int(10) NOT NULL,
+  `MatKhau` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `nguoidung`
 --
 
-INSERT INTO `nguoidung` (`IdNguoiDung`, `HoTen`, `NgaySinh`, `CMND`, `DiaChi`, `IdPhuongXa`, `Role`) VALUES
-(1, 'Phan Văn An', '2000-12-12', 123456789, 'Thôn Tùng Sơn', 3, 'Người Mua'),
-(2, 'Nguyễn Thanh Bình', '2001-01-21', 123456788, 'Thôn 1', 5, 'Người Bán'),
-(3, 'Lê Thành Công', '1995-12-30', 123456778, 'Thôn 3', 1, 'Người Bán'),
-(4, 'Nguyễn Thị Hòa', '1999-01-01', 123456779, 'Thôn 6', 4, 'Người Mua'),
-(5, 'Phạm Thị Hồng Hoa', '1997-11-01', 123456776, 'Thôn 2', 6, 'Người Bán'),
-(6, 'Lương Hoàng Lam', '1990-12-02', 123456677, 'Hòa Bắc', 2, 'Người Mua'),
-(7, 'Phạm Văn Minh', '1997-02-01', 123456679, 'Hòa nam', 1, 'Người Bán'),
-(8, 'Nguyễn Thị Trúc Lam', '1999-09-03', 123456676, 'Nam Phường', 10, 'Người Mua'),
-(9, 'Nguyễn Huỳnh Phương', '1989-02-03', 123456676, 'Nam Lĩnh', 20, 'Người Bán'),
-(10, 'Huỳnh Thúc Long', '1999-12-30', 123456674, 'Hồng Phong', 8, 'Người Bán');
+INSERT INTO `nguoidung` (`IdNguoiDung`, `HoTen`, `NgaySinh`, `CMND`, `DiaChi`, `IdPhuongXa`, `Role`, `SDT`, `MatKhau`) VALUES
+(1, 'Phan Văn An', '2000-12-12', 123456789, 'Thôn Tùng Sơn', 3, 'Người Mua', 987654321, 'abc123'),
+(2, 'Nguyễn Thanh Bình', '2001-01-21', 123456788, 'Thôn 1', 5, 'Người Bán', 987654322, 'abc123'),
+(3, 'Lê Thành Công', '1995-12-30', 123456778, 'Thôn 3', 1, 'Người Bán', 987654323, 'abc123'),
+(4, 'Nguyễn Thị Hòa', '1999-01-01', 123456779, 'Thôn 6', 4, 'Người Mua', 987654324, 'abc123'),
+(5, 'Phạm Thị Hồng Hoa', '1997-11-01', 123456776, 'Thôn 2', 6, 'Người Bán', 987654325, 'abc123'),
+(6, 'Lương Hoàng Lam', '1990-12-02', 123456677, 'Hòa Bắc', 2, 'Người Mua', 987654326, 'abc123'),
+(7, 'Phạm Văn Minh', '1997-02-01', 123456679, 'Hòa nam', 1, 'Người Bán', 987654327, 'abc123'),
+(8, 'Nguyễn Thị Trúc Lam', '1999-09-03', 123456676, 'Nam Phường', 10, 'Người Mua', 987654328, 'abc123'),
+(9, 'Nguyễn Huỳnh Phương', '1989-02-03', 123456676, 'Nam Lĩnh', 20, 'Người Bán', 987654329, 'abc123'),
+(10, 'Huỳnh Thúc Long', '1999-12-30', 123456674, 'Hồng Phong', 8, 'Người Bán', 987654320, 'abc123');
 
 -- --------------------------------------------------------
 
@@ -1848,8 +1850,8 @@ INSERT INTO `quanhuyen` (`IdQuanHuyen`, `TenQuanHuyen`, `IdTinhThanh`) VALUES
 (158, 'Krông Năng', 11),
 (159, 'Krông Pắc', 11),
 (160, 'Lăk', 11),
-(161, 'Đrăk', 11),
-(162, 'Thới Lai', 12),
+(161, 'M\'Đrăk', 11),
+(162, ' Thới Lai', 12),
 (163, 'Bình Thủy', 12),
 (164, 'Cái Răng', 12),
 (165, 'Cờ Đỏ', 12),

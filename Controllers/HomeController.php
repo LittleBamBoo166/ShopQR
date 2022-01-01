@@ -8,4 +8,7 @@ class HomeController {
     function getQR() {
         
     }
+    function display() {
+        require_once('Views/index.php');
+    }
 }

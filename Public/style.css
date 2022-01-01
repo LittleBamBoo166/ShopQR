@@ -18,12 +18,16 @@ h1 {
 /* table thead {
   color: rgb(241, 236, 64);
 } */
+/* html {
+  height: 100%;
+} */
 
 body {
   text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
   border-bottom: 0.25rem solid rgb(241, 236, 64);
   border-top: 0.5rem solid rgb(241, 236, 64);
+  /* height: 100%; */
 }
 
 .modal-content {
@@ -41,14 +45,17 @@ select:focus {
 
 .cover-container {
   max-width: 45em;
+  /* height: 100%; */
   /* height: Yu; */
   /* position: relative; */
 }
 
-.cover-center {
-  padding: 14.5rem 0;
+.cover-center-loginSucess {
+  padding: 2.3rem 0;
 }
-
+.cover-center-home {
+  padding: 14.3rem 0;
+}
 .nav-masthead .nav-link {
   padding: 0.25rem 0;
   font-weight: 700;

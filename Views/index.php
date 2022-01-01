@@ -9,8 +9,7 @@
     <link rel="icon" href="Public\images\logo2.png">
     <link rel="stylesheet" href="Public\style.css">
     <link rel="stylesheet" href="Public\dist\css\bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>View1 - Home</title>
+    <title>ShopQR</title>
 </head>
 
 <body class="d-flex h-100 text-center text-white bg-dark">
@@ -32,6 +31,8 @@
     </div>
 
     <script src="Public\dist\js\bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="Public\js\select.js"></script>
 </body>
 
 </html>
