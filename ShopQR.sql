@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 30, 2021 lúc 04:03 PM
+-- Thời gian đã tạo: Th1 02, 2022 lúc 06:39 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -20,29 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `quanlymuabanquaqr`
 --
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `admin`
---
-
-CREATE TABLE `admin` (
-  `IdAdmin` int(10) NOT NULL,
-  `MaDangNhap` varchar(10) NOT NULL,
-  `MatKhau` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `admin`
---
-
-INSERT INTO `admin` (`IdAdmin`, `MaDangNhap`, `MatKhau`) VALUES
-(1, 'abc', '12345'),
-(2, 'aaa', '123456'),
-(3, 'bbb', '1234'),
-(4, 'abcd', '1235'),
-(5, 'abcde', '123456');
 
 -- --------------------------------------------------------
 
@@ -64,7 +41,12 @@ CREATE TABLE `chitiettiepxuc` (
 INSERT INTO `chitiettiepxuc` (`IdChiTietTiepXuc`, `IdNguoiMua`, `IdNguoiBan`, `ThoiGian`) VALUES
 (1, 2, 1, '2021-12-28 10:20:12'),
 (2, 4, 5, '2021-12-28 14:37:57'),
-(3, 6, 7, '2021-12-28 14:38:10');
+(3, 6, 7, '2021-12-28 14:38:10'),
+(4, 1, 4, '2022-01-02 10:07:08'),
+(5, 1, 3, '2022-01-02 10:15:17'),
+(6, 1, 4, '2022-01-02 10:15:35'),
+(7, 1, 5, '2022-01-02 10:15:41'),
+(9, 1, 9, '2022-01-02 10:16:24');
 
 -- --------------------------------------------------------
 
@@ -79,8 +61,8 @@ CREATE TABLE `nguoidung` (
   `CMND` int(9) NOT NULL,
   `DiaChi` varchar(255) NOT NULL,
   `IdPhuongXa` int(10) NOT NULL,
-  `Role` varchar(11) NOT NULL,
-  `SDT` int(10) NOT NULL,
+  `Role` int(11) NOT NULL,
+  `SDT` char(10) NOT NULL,
   `MatKhau` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -89,16 +71,18 @@ CREATE TABLE `nguoidung` (
 --
 
 INSERT INTO `nguoidung` (`IdNguoiDung`, `HoTen`, `NgaySinh`, `CMND`, `DiaChi`, `IdPhuongXa`, `Role`, `SDT`, `MatKhau`) VALUES
-(1, 'Phan Văn An', '2000-12-12', 123456789, 'Thôn Tùng Sơn', 3, 'Người Mua', 987654321, 'abc123'),
-(2, 'Nguyễn Thanh Bình', '2001-01-21', 123456788, 'Thôn 1', 5, 'Người Bán', 987654322, 'abc123'),
-(3, 'Lê Thành Công', '1995-12-30', 123456778, 'Thôn 3', 1, 'Người Bán', 987654323, 'abc123'),
-(4, 'Nguyễn Thị Hòa', '1999-01-01', 123456779, 'Thôn 6', 4, 'Người Mua', 987654324, 'abc123'),
-(5, 'Phạm Thị Hồng Hoa', '1997-11-01', 123456776, 'Thôn 2', 6, 'Người Bán', 987654325, 'abc123'),
-(6, 'Lương Hoàng Lam', '1990-12-02', 123456677, 'Hòa Bắc', 2, 'Người Mua', 987654326, 'abc123'),
-(7, 'Phạm Văn Minh', '1997-02-01', 123456679, 'Hòa nam', 1, 'Người Bán', 987654327, 'abc123'),
-(8, 'Nguyễn Thị Trúc Lam', '1999-09-03', 123456676, 'Nam Phường', 10, 'Người Mua', 987654328, 'abc123'),
-(9, 'Nguyễn Huỳnh Phương', '1989-02-03', 123456676, 'Nam Lĩnh', 20, 'Người Bán', 987654329, 'abc123'),
-(10, 'Huỳnh Thúc Long', '1999-12-30', 123456674, 'Hồng Phong', 8, 'Người Bán', 987654320, 'abc123');
+(1, 'Phan Văn An', '2000-12-12', 123456789, 'Thôn Tùng Sơn', 3, 1, '0987654321', 'abc123'),
+(2, 'Nguyễn Thanh Bình', '2001-01-21', 123456788, 'Thôn 1', 5, 0, '0987654322', 'abc123'),
+(3, 'Lê Thành Công', '1995-12-30', 123456778, 'Thôn 3', 1, 0, '0987654323', 'abc123'),
+(4, 'Nguyễn Thị Hòa', '1999-01-01', 123456779, 'Thôn 6', 4, 0, '0987654324', 'abc123'),
+(5, 'Phạm Thị Hồng Hoa', '1997-11-01', 123456776, 'Thôn 2', 6, 0, '0905647452', 'abc123'),
+(6, 'Lương Hoàng Lam', '1990-12-02', 123456677, 'Hòa Bắc', 2, 1, '0987654326', 'abc123'),
+(7, 'Phạm Văn Minh', '1997-02-01', 123456679, 'Hòa nam', 1, 1, '0987654327', 'abc123'),
+(8, 'Nguyễn Thị Trúc Lam', '1999-09-03', 123456676, 'Nam Phường', 10, 1, '0987654328', 'abc123'),
+(9, 'Nguyễn Huỳnh Phương', '1989-02-03', 123456676, 'Nam Lĩnh', 20, 0, '0987654329', 'abc123'),
+(10, 'Huỳnh Thúc Long', '1999-12-30', 123456674, 'Hồng Phong', 8, 0, '0987654320', 'abc123'),
+(11, 'Lê Hoài Bão', '2001-06-16', 206309080, 'Hẻm Quan Tài', 940, 1, '0389451022', 'abc456'),
+(12, 'Nguyễn Văn Anh', '1999-12-25', 208209222, 'Thang Bang', 1121, 1, '0973480006', 'jkl123');
 
 -- --------------------------------------------------------
 
@@ -2018,12 +2002,6 @@ INSERT INTO `tinhthanh` (`IdTinhThanh`, `TenTinhThanh`) VALUES
 --
 
 --
--- Chỉ mục cho bảng `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`IdAdmin`);
-
---
 -- Chỉ mục cho bảng `chitiettiepxuc`
 --
 ALTER TABLE `chitiettiepxuc`
@@ -2063,22 +2041,16 @@ ALTER TABLE `tinhthanh`
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
---
-ALTER TABLE `admin`
-  MODIFY `IdAdmin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT cho bảng `chitiettiepxuc`
 --
 ALTER TABLE `chitiettiepxuc`
-  MODIFY `IdChiTietTiepXuc` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdChiTietTiepXuc` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `nguoidung`
 --
 ALTER TABLE `nguoidung`
-  MODIFY `IdNguoiDung` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `IdNguoiDung` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `phuongxa`
