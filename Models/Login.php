@@ -22,7 +22,11 @@ class Login extends model
         if (count($login) != 0 || $login != null) {
             $_SESSION['isLog'] = true;
             $_SESSION['login'] = $login;
-            header('Location: ?mod=login&act=account&case=access');
+            if ($_SESSION['login'][0]['Role'] == 2) {
+                header('Location: ?mod=login&act=admin&case=adminaccess');
+            } else {
+                header('Location: ?mod=login&act=account&case=access');
+            }            
         } else {
             header('Location: ?act=home#loginFailed');
         }

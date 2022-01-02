@@ -16,6 +16,12 @@ switch ($mod) {
         $controlObj = new TouchHisController();
         $controlObj->getTouchHis();
         break;
+    case 'admin':
+        require_once('Admin/index.php');
+        break;
+    case 'intro':
+        require_once('Views/index.php');
+        break;
     case 'account':
         $act = isset($_GET['case']) ? $_GET['case'] : "login";
         require_once("Controllers\LoginController.php");

@@ -8,6 +8,9 @@ switch ($act) {
             require_once("home/home.php");
         }
         break;
+    case 'intro':
+        require_once("home/intro.php");
+        break;
     case 'touchHis':
         require_once('touchhis/touchHis.php');
         break;

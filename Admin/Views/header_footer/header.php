@@ -6,6 +6,6 @@
     </h3>
     <nav class="nav nav-masthead justify-content-center float-md-end">
         <a href="?act=home" class="nav-link active" aria-current="page">Trang chủ</a>
-        <a href="?act=intro" class="nav-link">Giới thiệu</a>
+        <a href="?&act=account&case=logout" class="nav-link">Đăng xuất</a>
     </nav>
 </header>
