@@ -5,7 +5,7 @@
         </a>
     </h3>
     <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a href="?act=home" class="nav-link active" aria-current="page">Trang chủ</a>
+        <a href="?mod=login&act=admin&case=adminaccess" class="nav-link active" aria-current="page">Trang chủ</a>
         <a href="?&act=account&case=logout" class="nav-link">Đăng xuất</a>
     </nav>
 </header>
