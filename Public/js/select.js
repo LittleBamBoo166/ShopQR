@@ -20,8 +20,8 @@ function tinhthanh(sel) {
     xmlhttp.send();
 }
 var pro = document.getElementById("pro");
-if (typeof(pro) != 'undefined' && pro != null) {
-    tinhthanh(pro);    
+if (typeof (pro) != 'undefined' && pro != null) {
+    tinhthanh(pro);
 }
 
 function quanhuyen(sel) {
@@ -70,32 +70,37 @@ function xaphuong(sel) {
 }
 
 // ------------------------------------------------------
-// function tinhthanhCC(sel) {
-//     var val = document.getElementById("idtt").getAttribute("data-address-id");
-//     while (sel.hasChildNodes()) {
-//         sel.removeChild(sel.firstChild);
-//     }
-//     var xmlhttp = new XMLHttpRequest();
-//     xmlhttp.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//             var tt = this.responseText;
-//             var ttArr = tt.split("|");
-//             for (var i = 0; i < ttArr.length; i = i + 2) {
-//                 var ele = document.createElement("option");
-//                 ele.value = ttArr[i];
-//                 if (ele.value == val) {
-//                     ele.setAttribute("selected", "selected");
-//                 }
-//                 ele.textContent = ele.value + " - " + ttArr[i + 1];
-//                 sel.appendChild(ele);
-//             }
-//         }
-//     }
-//     var filter = "tinhthanh";
-//     xmlhttp.open("GET", "Views/selectTT.php?q=" + filter, true);
-//     xmlhttp.send();
-// }
-// var proCC = document.getElementById("proCC");
-// if (typeof(proCC) != 'undefined' && proCC != null) {
-//     tinhthanhCC(proCC);    
-// }
+function touchHis(id) {
+    var dateControl = document.querySelector('input[type="date"]');
+    var dateArr = dateControl.value.split('-');
+    var filter = id + "_" + dateArr[2] + "_" + dateArr[1] + "_" + dateArr[0];
+    var tbody = document.getElementById('touch');
+    if (typeof (tbody) != 'undefined' && tbody != null) {
+        while (tbody.hasChildNodes()) {
+            tbody.removeChild(tbody.firstChild);
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var rs = this.responseText;
+                // if ()
+                var rsArr = rs.split("|");
+                for (var i = 0; i < rsArr.length; i = i + 5) {
+                    var tr = document.createElement("tr");
+                    var tmp = i;
+                    for (var j = 1; j <= 5; j++) {
+                        var td = document.createElement("td");
+                        var content = document.createTextNode(rsArr[tmp]);
+                        td.appendChild(content);
+                        tmp++;
+                        tr.appendChild(td);
+                    }
+                    tbody.appendChild(tr);
+                }
+                // document.getElementById('exaa').innerHTML = rs;
+            }
+        }
+        xmlhttp.open("GET", "Views/touchhis/touchHisSelect.php?q=" + filter, true);
+        xmlhttp.send();
+    }
+}

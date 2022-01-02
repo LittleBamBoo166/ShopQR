@@ -49,7 +49,14 @@ select:focus {
   /* height: Yu; */
   /* position: relative; */
 }
-
+.table-container {
+  min-height: 17.4rem;
+}
+table {
+  /* height: 6rem; */
+  /* border: 1px solid rgb(241, 236, 64) !important; */
+  overflow-x: scroll;
+}
 .cover-center-loginSucess {
   padding: 2.3rem 0;
 }

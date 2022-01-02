@@ -24,36 +24,14 @@ class Login extends model
             $_SESSION['login'] = $login;
             header('Location: ?mod=login&act=account&case=access');
         } else {
-            $query2 = "SELECT * FROM admin
-                       WHERE MaDangNhap = :mdn AND MatKhau = :mk";
-            $statement2 = $this->db->prepare($query2);
-            $statement2->bindValue(':mdn', $data['SDT']);
-            $statement2->bindValue(':mk', $data['MatKhau']);
-            $statement2->execute();
-            $admin = $statement2->fetchAll();
-            $statement2->closeCursor();
-            if (count($admin) != 0 || $admin != null) {
-                $_SESSION['isLogin_Admin'] = true;
-                $_SESSION['login'] = $login;
-                header('Location: ?mod=login&act=account&case=access');
-            } else {
-                echo "<script>alert('Login failed')</script>";
-            }
+            header('Location: ?act=home#loginFailed');
         }
     }
 
     function logoutAction()
     {
-        if (isset($_SESSION['isLogin_Admin'])) {
-            unset($_SESSION['isLogin_Admin']);
-            unset($_SESSION['login']);
-        }
-        if (isset($_SESSION['isLogin_Nguoimua'])) {
-            unset($_SESSION['isLogin_Nguoimua']);
-            unset($_SESSION['login']);
-        }
-        if (isset($_SESSION['isLogin_Nguoiban'])) {
-            unset($_SESSION['isLogin_Nguoiban']);
+        if (isset($_SESSION['isLog'])) {
+            unset($_SESSION['isLog']);
             unset($_SESSION['login']);
         }
         header('Location: ?act=home');
@@ -75,31 +53,37 @@ class Login extends model
             $statement->bindValue(':sdt', $data['SDT']);
             $statement->bindValue(':mk', $data['MatKhau']);
             $st = $statement->execute();
+            $statement->closeCursor();
             if ($st == true) {
-                echo '<scrip>alert("Sign up sucess")</scrip>';
+                return true;
             } else {
-                echo '<script>alert("Sign up failed")</script>';
+                return false;
             }
         } else {
-            echo '<script>alert("Exist account")</script>';
+            return false;
         }
     }
 
     function updateAccount($data) {
         $query = 'UPDATE nguoidung
-                  SET HoTen = :ht, NgaySinh = :ns, CMND = :cm, DiaChi = :dc, IdPhuongXa = :px, Role = :r, SDT = :sdt, MatKhau = :mk
+                  SET CMND = :cm, DiaChi = :dc, IdPhuongXa = :px, Role = :r, SDT = :sdt
                   WHERE IdNguoiDung = :id';
         $statement = $this->db->prepare($query);
-        $statement->bindValue(':ht', $data['HoTen']);
-        $statement->bindValue(':ns', $data['NgaySinh']);
+        // $statement->bindValue(':ht', $data['HoTen']);
+        // $statement->bindValue(':ns', $data['NgaySinh']);
         $statement->bindValue(':cm', $data['CMND']);
         $statement->bindValue(':dc', $data['DiaChi']);
         $statement->bindValue(':px', $data['IdPhuongXa']);
         $statement->bindValue(':r', $data['Role']);
         $statement->bindValue(':sdt', $data['SDT']);
-        $statement->bindValue(':mk', $data['MatKhau']);
+        // $statement->bindValue(':mk', $data['MatKhau']);
         $statement->bindValue(':id', $data['IdNguoiDung']);
-        $statement->execute();
+        $rs = $statement->execute();
         $statement->closeCursor();
+        if ($rs == true) {
+            header('Location: ?mod=login&act=account&case=account-info#updated');
+        } else {
+            header('Location: ?mod=login&act=account&case=account-info#updatefailed');
+        }
     }
 }

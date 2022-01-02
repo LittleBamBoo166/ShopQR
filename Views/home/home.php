@@ -42,33 +42,37 @@
             </div>
 
             <div class="modal-body p-5 pt-0">
-                <form action="#" method="post">
+                <form action="?act=account&case=signup" method="post">
+                    <div class="form-floating mb-3">
+                        <input id="nameLog" type="text" name="nameLog" class="form-control">
+                        <label for="nameLog">Họ và tên</label>
+                    </div>
                     <select name="role" id="role" class="form-select mb-3">
-                        <option value="">Chủ cửa hàng</option>
-                        <option value="">Khách hàng</option>
+                        <option value="0">Chủ cửa hàng</option>
+                        <option value="1">Khách hàng</option>
                     </select>
                     <div class="form-floating mb-3">
                         <input id="dob" type="date" name="dob" class="form-control">
-                        <label for="logTel">Ngày tháng năm sinh</label>
+                        <label for="dob">Ngày tháng năm sinh</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <!-- <div class="form-floating mb-3">
                         <select name="gender" id="gender" class="form-select">
                             <option value="">Nam</option>
                             <option value="">Nữ</option>
                         </select>
                         <label for="gender" class="form-label">Giới tính</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-3">
                         <input id="logTel" type="tel" name="logTel" class="form-control" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
                         <label for="logTel">Số điện thoại</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input id="idNumber" type="text" name="idNumber" class="form-control">
-                        <label for="logTel">Số hộ chiếu/CMND/CCCD</label>
+                        <label for="idNumber">Số hộ chiếu/CMND/CCCD</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input id="address" type="text" name="address" class="form-control">
-                        <label for="logTel">Thôn/Xóm/Số nhà</label>
+                        <label for="address">Thôn/Xóm/Số nhà</label>
                     </div>
                     <div class="form-floating mb-3">
                         <select name="pro" id="pro" class="form-select" onchange="quanhuyen(this)">
